@@ -2,14 +2,14 @@ const inputBOX = document.getElementById('input-box');
 const listCONT = document.getElementById('list-cont');
 const currentUser = localStorage.getItem('currentUser');
 
-if (currentUser){
-    document.getElementById('greetings').innerHTML = `${currentUser}'s To-Do List`
+if (currentUser) {
+    document.getElementById('greetings').innerHTML = `${currentUser}'s To-Do List`;
 }
 
-function addTask(){
-    if(inputBOX.value === '')
+function addTask() {
+    if (inputBOX.value === '') {
         alert("You must write something!");
-    else{
+    } else {
         let liDOM = document.createElement('li');
         liDOM.innerHTML = inputBOX.value;
         listCONT.appendChild(liDOM);
@@ -19,33 +19,34 @@ function addTask(){
         liDOM.appendChild(spanDOM);
     }
     inputBOX.value = "";
-    saveData( /*username*/ );
+    saveData(currentUser);
 }
 
-function logout(){
-
+function logout() {
     localStorage.removeItem('currentUser');
     window.location.href = "login.html";
-
 }
 
-listCONT.addEventListener('click', function(e){
-    if(e.target.tagName === 'LI'){
+listCONT.addEventListener('click', function (e) {
+    if (e.target.tagName === 'LI') {
         e.target.classList.toggle('checked');
-        saveData( /*username*/ );
-    }
-    else if(e.target.tagName === 'SPAN'){
+        saveData(currentUser);
+    } else if (e.target.tagName === 'SPAN') {
         e.target.parentElement.remove();
-        saveData( /*username*/ );
+        saveData(currentUser);
     }
 }, false);
 
-function saveData( /*username*/ ){
-    // localStorage.setItem(`${username}.todo`, listCONT.innerHTML)
-    localStorage.setItem(`todo`, listCONT.innerHTML)
+function saveData(currentUser) {
+    const todoObject = JSON.parse(localStorage.getItem('todo')) || {};
+    todoObject[currentUser] = listCONT.innerHTML;
+    localStorage.setItem('todo', JSON.stringify(todoObject));
 }
-function getData( /*username*/ ){
-    // listCONT.innerHTML = localStorage.getItem(`${username}.todo`);
-    listCONT.innerHTML = localStorage.getItem(`todo`);
+
+function getData(currentUser) {
+    const todoObject = JSON.parse(localStorage.getItem('todo'));
+    if (todoObject && todoObject[currentUser]) {
+        listCONT.innerHTML = todoObject[currentUser];
+    }
 }
-getData();
+getData(currentUser);
