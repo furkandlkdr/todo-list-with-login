@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Stylesheets/listToDo.css">
+    <title>To-Do</title>
+</head>
+<body>
+    <div class="container">
+        <div class="todo-app">
+            <div class="upper">
+                <h2 id="greetings"> User's To-Do List</h2>
+                <button onclick="logout()" id="logout">Log Out</button>
+            </div>
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Add list">
+                <button onclick="addTask()" id="add">Add</button>
+            </div>
+            <ul id="list-cont">
+                <!-- <li class="checked">Task 1 <span>DENEME</span> </li>
+                <li>Task 2</li>
+                <li>Task 3</li> -->
+            </ul>
+        </div>
+    </div>
+    <script src="./Scripts/to-do.js"></script>
+</body>
+</html>
