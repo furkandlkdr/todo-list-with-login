@@ -4,6 +4,8 @@ const currentUser = localStorage.getItem('currentUser');
 
 if (currentUser) {
     document.getElementById('greetings').innerHTML = `${currentUser}'s To-Do List`;
+}else {
+    window.location.href = "login.html";
 }
 
 function addTask() {
@@ -27,7 +29,7 @@ function logout() {
     window.location.href = "login.html";
 }
 
-listCONT.addEventListener('click', function (e) {
+listCONT.addEventListener('click', (e) => {
     if (e.target.tagName === 'LI') {
         e.target.classList.toggle('checked');
         saveData(currentUser);
@@ -35,11 +37,21 @@ listCONT.addEventListener('click', function (e) {
         e.target.parentElement.remove();
         saveData(currentUser);
     }
-}, false);
+});
+
+// function displayData(data) {
+//     // { check: true, text: "asdasd" }
+//     `
+//     <li class="checked">
+//         asdasd
+//         <span>×</span>
+//     </li>
+//     `
+// }
 
 function saveData(currentUser) {
     const todoObject = JSON.parse(localStorage.getItem('todo')) || {};
-    todoObject[currentUser] = listCONT.innerHTML;
+    todoObject[currentUser] = listCONT.innerHTML.trim();
     localStorage.setItem('todo', JSON.stringify(todoObject));
 }
 

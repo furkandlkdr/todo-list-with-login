@@ -51,7 +51,7 @@ input{
 input::-webkit-input-placeholder{
     color: #bab986
 }
-#login, #signup{
+#send{
     text-transform: uppercase;
     background: transparent;
     color: #000039;
