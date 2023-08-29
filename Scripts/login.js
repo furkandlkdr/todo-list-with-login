@@ -51,26 +51,3 @@ loginBTN.onclick = () => {
         }
     }
 }
-// const userList = localStorage.getItem('users');
-// console.log('test2');
-// onAuthStateChanged(auth, user => {
-//     if (user != null)
-//         console.log('logged in!');
-//     else
-//         console.log('no user');
-// })
-
-    // const infos = userList.foreach((users, ) => {
-    //     if (users.username.toString() == usernameDOM.toString()){
-    //         if (users.password.toString() == passwordDOM.toString()){
-    //             console.log('Giris basarili');
-    //             return {
-    //                 username : users.username,
-    //                 password : users.password,
-    //             }
-    //         }
-    //     }
-    // });
-    // if (!infos)
-    //     alert('Bu bilgilere sahip bir kullanici yok!');
-// });

@@ -1,28 +1,22 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:"Roboto", sans-serif;
+    font-family: "Roboto", sans-serif;
 }
-body{
+
+body {
     background-color: #7c7b6c;
 }
-/* form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-content: center;
-} */
 
-h1{
+h1 {
     display: flex;
     justify-content: center;
 }
 
-.background{
+.background {
     width: 100%;
     min-height: 100vh;
     background: linear-gradient(135deg, #bab986, #3e3e53);
@@ -32,7 +26,8 @@ h1{
     justify-content: center;
     align-content: center;
 }
-input{
+
+input {
     width: 400px;
     height: 40px;
     display: flex;
@@ -48,10 +43,13 @@ input{
     font-size: 1.4rem;
     margin-bottom: 10px;
 }
-input::-webkit-input-placeholder{
+
+input::-webkit-input-placeholder {
     color: #bab986
 }
-#login, #signup{
+
+#login,
+#signup {
     text-transform: uppercase;
     background: transparent;
     color: #000039;
@@ -66,10 +64,12 @@ input::-webkit-input-placeholder{
     padding: 0.75rem 1.25rem;
     margin: 1rem;
 }
-.buttons{
+
+.buttons {
     display: flex;
     justify-content: center;
 }
+
 button:hover {
     color: #f8f69f;
     background: #000039;
