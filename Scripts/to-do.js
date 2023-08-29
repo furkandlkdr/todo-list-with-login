@@ -3,7 +3,7 @@ const listCONT = document.getElementById('list-cont');
 const currentUser = localStorage.getItem('currentUser');
 
 if (currentUser) {//if our user logged in, else; redirect login page.
-    document.getElementById('greetings').innerHTML = `${currentUser}'s To-Do List`;
+    document.getElementById('greetings').innerHTML = `${currentUser[0].toUpperCase() + currentUser.slice(1)}'s To-Do List`;
 } else {
     window.location.href = "index.html";
 }
@@ -43,7 +43,7 @@ function saveData(currentUser) {
     const todoObject = JSON.parse(localStorage.getItem('todo')) || {};
     const liElement = document.querySelectorAll('li');
     const object = [];
-//we trim value and classes and store data in our object and localStorage
+    //we trim value and classes and store data in our object and localStorage
     for (const element of liElement) {
         const value = element.innerHTML.trim();
         const isChecked = element.classList.contains("checked");
