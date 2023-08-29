@@ -4,7 +4,7 @@ const currentUser = localStorage.getItem('currentUser');
 
 if (currentUser) {
     document.getElementById('greetings').innerHTML = `${currentUser}'s To-Do List`;
-}else {
+} else {
     window.location.href = "index.html";
 }
 
@@ -39,26 +39,33 @@ listCONT.addEventListener('click', (e) => {
     }
 });
 
-// function displayData(data) {
-//     // { check: true, text: "asdasd" }
-//     `
-//     <li class="checked">
-//         asdasd
-//         <span>×</span>
-//     </li>
-//     `
-// }
-
 function saveData(currentUser) {
     const todoObject = JSON.parse(localStorage.getItem('todo')) || {};
-    todoObject[currentUser] = listCONT.innerHTML.trim();
+    const liElement = document.querySelectorAll('li');
+    const object = [];
+    for (const element of liElement) {
+        const value = element.innerHTML.trim();
+        const isChecked = element.classList.contains("checked");
+        object.push({
+            value,
+            isChecked,
+        })
+    }
+    todoObject[currentUser] = object;
     localStorage.setItem('todo', JSON.stringify(todoObject));
 }
 
 function getData(currentUser) {
     const todoObject = JSON.parse(localStorage.getItem('todo'));
+    console.log(todoObject)
     if (todoObject && todoObject[currentUser]) {
-        listCONT.innerHTML = todoObject[currentUser];
+        for (const li of todoObject[currentUser]) {
+            const liNode = document.createElement('li');
+            if (li.isChecked)
+                liNode.classList.add('checked');
+            liNode.innerHTML = li.value;
+            listCONT.appendChild(liNode);
+        }
     }
 }
 getData(currentUser);
