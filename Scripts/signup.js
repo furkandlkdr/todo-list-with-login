@@ -24,7 +24,7 @@ formDOM.addEventListener('submit', (e) => {
         alert('You have successfully signed up!');
         localData.push(user) // listenin sonuna eleman ekle
         localStorage.setItem('users', JSON.stringify(localData));
-        window.location.href = 'login.html';
+        window.location.href = 'index.html';
     }
 
 });

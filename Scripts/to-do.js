@@ -5,7 +5,7 @@ const currentUser = localStorage.getItem('currentUser');
 if (currentUser) {
     document.getElementById('greetings').innerHTML = `${currentUser}'s To-Do List`;
 }else {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }
 
 function addTask() {
@@ -26,7 +26,7 @@ function addTask() {
 
 function logout() {
     localStorage.removeItem('currentUser');
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }
 
 listCONT.addEventListener('click', (e) => {

@@ -51,7 +51,7 @@ input{
 input::-webkit-input-placeholder{
     color: #bab986
 }
-#send{
+#send, #return{
     text-transform: uppercase;
     background: transparent;
     color: #000039;
@@ -70,7 +70,7 @@ input::-webkit-input-placeholder{
     display: flex;
     justify-content: center;
 }
-button:hover {
+#send:hover, #return:hover {
     color: #f8f69f;
     background: #000039;
 }
